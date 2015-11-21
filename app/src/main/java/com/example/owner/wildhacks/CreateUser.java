@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class CreateUser extends AppCompatActivity {
 
@@ -15,14 +17,19 @@ public class CreateUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
 
+        final TextView nameTextView = (TextView) findViewById(R.id.editText);
+        final TextView weightTextView = (TextView) findViewById(R.id.editText2);
 
-
-        Button switchButton = (Button) findViewById(R.id.button);
+        ImageButton switchButton = (ImageButton) findViewById(R.id.imageButton);
         switchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name;
+                String name = nameTextView.getText().toString();
+                Integer weight = Integer.parseInt(weightTextView.getText().toString());
+
                 Intent intent = new Intent(CreateUser.this, MainPage.class);
+                intent.putExtra("name", name);
+                intent.putExtra("weight", weight);
                 startActivity(intent);
             }
         });

@@ -10,7 +10,6 @@ public class BAC {
     private double amountOfAlcohol;
     private int weight;
     private double alcoholDistribution;
-    private int height;
     private User user;
 
 
@@ -18,7 +17,6 @@ public class BAC {
         this.user = user;
         this.amountOfAlcohol = amountOfAlcohol;
         this.weight = user.getWeight();
-        this.height = user.getHeight();
         if (user.isFemale()) {
             this.alcoholDistribution = 0.66;
         } else {
